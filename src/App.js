@@ -44,7 +44,12 @@ class App extends Component {
         </header>
           <ul>
               {this.state.newMap.map((number) => {
-                  return <li key={number}>{number}</li>
+                  return <li
+                    key={number}
+                    style={
+                      (number[0] % 5 === 0) ? {color: 'red'} : { color: 'blue' }
+                    }
+                  >{number[0]}</li>
               }).filter((test) => test.key.split(',')[0] > 100)}
           </ul>
         <button onClick={() => this.produceArray(Array.from({length: 15}, () => Math.floor(Math.random() * 999)))}>
